@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Main Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #header {
+            background-color: #F8F3F3;
+            border-bottom: 1px solid lightgray;
+
+        }
+
+        .container {
+            width: 980px;
+            margin: auto;
+            padding: 20px 0;
+        }
+
+        .container-left {
+
+        }
+
+        .logo {
+            float: left;
+            margin-right: 10px;
+        }
+
+        logo_popo {
+        }
+
+        .menu {
+            float: right;
+        }
+
+        .menu-item {
+            float: left;
+            padding: 8px 10px;
+            margin-top: 40px;
+            margin-left: 30px;
+            font-weight: bold;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .logo_main {
+            display: block;
+            margin: 100px 250px 0px auto;
+        }
+
+        .logo_main2 {
+            display: block;
+            margin-top: 70px;
+            margin-left: 300px;
+            float: left;
+        }
+
+        .main_container {
+
+            margin-left: 250px;
+
+            box-sizing: border-box;
+
+            position: absolute;
+            width: 812px;
+            height: 326px;
+            left: 554px;
+            top: 559px;
+
+            background: #FFFAFA;
+            border: 2px solid #C4C4C4;
+            border-radius: 50px;
+        }
+
+        .main_container2 {
+
+            margin-left: 250px;
+
+            position: absolute;
+            width: 774px;
+            height: 256px;
+            left: 573px;
+            top: 610px;
+
+            background: #FFFFFF;
+            border-radius: 50px;
+        }
+
+        .con_txt1 {
+
+            margin-left: 270px;
+
+            position: absolute;
+            width: 424px;
+            height: 24px;
+            left: 598px;
+            top: 640px;
+
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 22px;
+            line-height: 35px;
+
+            color: #7A6E6E;
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        <div class="container-left clearfix">
+            <div class="logo">
+                <img class="logo_popo" src="images/logo_2.png"
+                     alt="">
+            </div>
+            <div class="menu clearfix">
+                <div class="menu-item">챗봇</div>
+                <div class="menu-item">내 일기</div>
+                <div class="menu-item">게시판</div>
+                <div class="menu-item">POPO SHOP</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <img class="logo_main" src="images/main_logo.png" width="1400" height="300"
+         alt="">
+</div>
+<div>
+    <img class="logo_main2" src="images/main_po.png" width="300" height="200"
+         alt="">
+    <div class="main_container"></div>
+    <div class="main_container2"></div>
+    <li class="con_txt1"> [공지] 3월 26일 점검 예정 </li>
+</div>
+</body>
+</html>
