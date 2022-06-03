@@ -1,0 +1,364 @@
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>게시판</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    #header {
+        background-color: #F8F3F3;
+        border-bottom: 1px solid lightgray;
+
+    }
+
+    .container {
+        width: 980px;
+        margin: auto;
+        padding: 20px 0;
+    }
+
+    .container-left {
+
+    }
+
+    .logo {
+        float: left;
+        margin-right: 10px;
+    }
+
+    logo_popo {
+    }
+
+    .menu {
+        float: right;
+    }
+
+    .menu-item {
+        float: left;
+        padding: 8px 10px;
+        margin-top: 40px;
+        margin-left: 30px;
+        font-weight: bold;
+    }
+
+
+    .clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    .btn_theme {
+        position: fixed;
+        border: none;
+        right: 78px;
+        bottom: 19px;
+        display: inline-block;
+        width: 190px;
+        height: 60px;
+        font-size: 16px;
+        font-weight: bolder;
+        background-position: -270px -55px;
+        background-repeat: no-repeat;
+        vertical-align: top;
+        cursor: pointer;
+        z-index: 100;
+        border-radius: 32px;
+        duration: 0.4s;
+        transition-duration: 0.4s;
+        background-color: #F4EAEA;
+
+        box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .btn_theme:hover {
+        background-color: black;
+        color: white;
+        box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.24), 0 10px 30px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .chatbot-move {
+        position: fixed;
+        box-sizing: border-box;
+        border-radius: 50%;
+        right: 88px;
+        bottom: 130px;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bolder;
+        background-position: -270px -55px;
+        background-repeat: no-repeat;
+        vertical-align: top;
+        cursor: pointer;
+        z-index: 100;
+        duration: 0.4s;
+        transition-duration: 0.4s;
+        background-color: oldlace;
+        /*  position: fixed;
+          right: 300px;
+          bottom: 100px;
+          z-index: 100;
+          box-sizing: border-box;
+          border-radius: 50%;
+
+          position: absolute;
+          width: 120px;
+          height: 120px;
+          left: 1334px;
+          top: 856px; */
+
+
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        -webkit-transition-duration: 0.4s;
+        transition-duration: 0.4s;
+
+        box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+
+    }
+
+    .chatbot-move:hover {
+        background-color: black;
+        color: white;
+        box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+
+    }
+
+    #fix {
+        position: fixed;
+
+    }
+
+    .board_main {
+        text-align: center;
+        margin-top: 100px;
+        margin-bottom: 60px;
+
+        font-size: 26px;
+    }
+
+    .board_body {
+        width: 80rem;
+        border: 1px solid grey;
+        border-radius: 10px;
+        margin: 10px 20px;
+        padding: 15px 10px;
+
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+    .board_body_body {
+        display: flex;
+    }
+
+    .board_body_body > div {
+        padding: 0 5px;
+        flex-grow: 1;
+    }
+
+    .board_body_comment {
+        display: flex;
+    }
+
+    .board_body_comment > div {
+        padding: 0 10px;
+    }
+
+    .board_emotion {
+        margin-bottom: 80px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .board_emotion > button {
+        text-align: center;
+        border: none;
+        box-sizing: border-box;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+        transition: 0.25s;
+        background-color: #FFFFFF;
+        margin-right: 50px;
+
+    }
+
+    .board_body_profile {
+        display: flex;
+        width: 400px;
+
+        height: 120px;
+
+    }
+
+    .board_body_profile > div {
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-bottom: 20px;
+    }
+
+    .board_body_img {
+        text-align: right;
+    }
+
+    .board_body_content {
+        margin-left: 60px;
+        margin-top: 40px;
+    }
+
+    .p_comment {
+        width: 700px;
+
+    }
+
+</style>
+<body>
+<div id="header">
+    <div class="container">
+        <div class="container-left clearfix">
+            <div class="logo">
+                <img class="logo_popo" src="images/logo_2.png"
+                     alt="">
+            </div>
+            <div class="menu clearfix">
+                <div class="menu-item">챗봇</div>
+                <div class="menu-item">내 일기</div>
+                <div class="menu-item">게시판</div>
+                <div class="menu-item">POPO SHOP</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="board_main">
+    <h1>게시판</h1>
+</div>
+<div class="board_emotion">
+    <button id="emo_btn1" type="button" role="button" class="btn_theme1" aria-pressed="false">
+        <img src="images/popo_yellow.png">
+    </button>
+    <button id="emo_btn2" type="button" role="button" class="btn_theme1" aria-pressed="false">
+        <img src="images/popo_purple.png">
+    </button>
+    <button id="emo_btn3" type="button" role="button" class="btn_theme1" aria-pressed="false">
+        <img src="images/popo_blue.png">
+    </button>
+    <button id="emo_btn4" type="button" role="button" class="btn_theme1" aria-pressed="false">
+        <img src="images/popo_red.png">
+    </button>
+    <button id="emo_btn5" type="button" role="button" class="btn_theme1" aria-pressed="false">
+        <img src="images/popo_green.png">
+    </button>
+    <button id="emo_btn6" type="button" role="button" class="btn_theme1" aria-pressed="false">
+        <img src="images/popo_orange.png">
+    </button>
+</div>
+<div class="board_body">
+    <div class="board_body_body">
+        <div class="board_body_profile">
+            <img src="images/popo_yellow.png">
+            <div> 다연짱 2021.01.02</div>
+            <div class="board_body_content">
+                <p class='p_comment'> 공유는 너무 잘생겼다 보고만 있어도 힐링된다,,,,모두들 공유보고 힐링하길,,  ... 더보기 </p>
+            </div>
+        </div>
+        <div class="board_body_img">
+            <img src="images/kong.png">
+        </div>
+    </div>
+    <hr>
+    <div class="board_body_comment">
+        <div class="board_body_comment_img">
+            <img src="images/pro1.png">
+        </div>
+        <div class="board_body_comment_content">
+            <div>
+                익명1
+            </div>
+            <div>
+                부럽다.... 나도 가고싶다 ㅋ
+            </div>
+        </div>
+    </div>
+</div>
+<div class="board_body">
+    <div class="board_body_body">
+        <div class="board_body_profile">
+            <img src="images/popo_red.png">
+            <div> 시우럽 2021.01.02</div>
+            <div class="board_body_content">
+                <p class='p_comment'> [속보] 인플루언서 강시우,,, 코로나 시국 팬들 기만 사진 인스타에 올려 크게 논란,,,  ... 더보기 </p>
+            </div>
+        </div>
+
+        <div class="board_body_img">
+            <img src="images/kang.png">
+        </div>
+    </div>
+    <hr>
+    <div class="board_body_comment">
+        <div class="board_body_comment_img">
+            <img src="images/pro1.png">
+        </div>
+        <div class="board_body_comment_content">
+            <div>
+                익명1
+            </div>
+            <div>
+                부럽다.... 나도 가고싶다 ㅋ
+            </div>
+        </div>
+    </div>
+    `
+</div>
+<div class="board_body">
+    <div class="board_body_body">
+        <div class="board_body_profile">
+            <img src="images/popo_purple.png">
+            <div> 다연짱 2021.01.02</div>
+            <div class="board_body_content">
+                <p class='p_comment'>일본 감성이 느껴지는 짱구 사진 나도 여행가고싶은데..힘들겠지..?  ... 더보기 </p>
+            </div>
+        </div>
+
+        <div class="board_body_img">
+            <img src="images/jjang.jpg">
+        </div>
+    </div>
+    <hr>
+    <div class="board_body_comment">
+        <div class="board_body_comment_img">
+            <img src="images/pro1.png">
+        </div>
+        <div class="board_body_comment_content">
+            <div>
+                익명1
+            </div>
+            <div>
+                부럽다.... 나도 가고싶다 ㅋ
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<button id="NM_darkmode_btn" type="button" role="button" class="btn_theme" aria-pressed="false">
+    다이어리 쓰기
+</button>
+
+<a id="NM_scroll_top_btn" href="#wrap" class="chatbot-move">
+        <span class="blind">
+            <img class='popo_main_img' src="images/main_popo-removebg-preview.png" width="120" height="120"></img>
+        </span>
+</a>
+
+</body>
